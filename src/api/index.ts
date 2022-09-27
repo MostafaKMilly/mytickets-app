@@ -1,5 +1,5 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from "axios"
-import { MapResponseFn } from "../types";
+import axios, { AxiosResponse } from "axios"
+import { MapResponseFn, TGetRequest } from "../types";
 
 // Axios instance
 const instance = axios.create({
@@ -21,20 +21,19 @@ instance.interceptors.request.use((config) => {
 
 /**
  * 
- * @param {TGetRequest} requestConfig - request config
+ * @param {AxiosRequestConfig} requestConfig - request config
  * @param {MapResponseFn<T, R>} mapResponseFn - callback to change response data
  * @returns Promise
  */
-const get = async <T, R = AxiosResponse>(url: string, config?: AxiosRequestConfig,
+const get = async <T, R = AxiosResponse>({ url, params }: TGetRequest,
     mapResponseFn?: MapResponseFn<T, R>): Promise<T> => {
-    const res = await instance.get(url, config);
-    return await new Promise<T>((resolve) => {
-        if (mapResponseFn) {
-            resolve(mapResponseFn(res.data));
-        } else {
-            resolve(res.data);
-        }
-    });
+    const res = await instance.get(url, params);
+    if (mapResponseFn) {
+        return mapResponseFn(res.data)
+    }
+    else {
+        return res.data
+    }
 }
 
 const API = {
