@@ -1,3 +1,3 @@
 # My Tickets
 
-Simple React project managment application
+Simple React project managment application.
