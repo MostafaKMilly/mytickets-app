@@ -25,8 +25,6 @@ src/
 │   ├── project/
 │   │   ├── components/
 │   │   ├── hooks/
-│   │   ├── views/
-│   │   │   └── ...
 │   │   ├── types/
 │   │   ├── Project.tsx
 │   │   └── index.ts
