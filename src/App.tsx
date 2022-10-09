@@ -1,11 +1,12 @@
 import React from 'react';
+import { BrowserRouter as Router } from "react-router-dom"
+import { Rotues } from './routes/Routes';
 
 function App() {
-  console.log(process.env.REACT_APP_API_URI)
   return (
-    <div>
-      MY TICKETS APP
-    </div>
+    <Router>
+      <Rotues />
+    </Router>
   );
 }
 
