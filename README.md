@@ -17,34 +17,24 @@ src/
 │   ├── hooks/
 │   └── types/
 ├── data/
-│   ├── Store.ts
+│   ├── store.ts
 │   └── slices/
 │       ├── userSlice.ts
 │       └── ...
-└── pages/
-    ├── login/
-    │   ├── components/
-    │   │   ├── LoginForm.tsx
-    │   │   └── ...
-    │   ├── hooks/
-    │   │   ├── useLogin.ts
-    │   │   └── ...
-    │   ├── types/
-    │   ├── Login.tsx
-    │   └── index.ts
-    ├── project/
-    │   ├── components/
-    │   ├── hooks/
-    │   ├── views/
-    │   │   └── ...
-    │   ├── types/
-    │   ├── Project.tsx
-    │   └── index.ts
-    ├── ....
-    ├── routes/
-    │   └── Routes.tsx
-    ├── themes/
-    │   └── BaseTheme.ts
-    ├── App.tsx
-    └── index.tsx
+├── pages/
+│   ├── project/
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   ├── views/
+│   │   │   └── ...
+│   │   ├── types/
+│   │   ├── Project.tsx
+│   │   └── index.ts
+│   └── ....
+├── routes/
+│   └── Routes.tsx
+├── themes/
+│   └── BaseTheme.ts
+├── App.tsx
+└── index.tsx
 ```
