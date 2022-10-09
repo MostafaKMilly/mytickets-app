@@ -1,5 +1,5 @@
 import axios from "axios"
-import { TDeleteRquest, TGetRequest, TPostRequst, TPutRequest } from "../types";
+import { TDeleteRquest, TGetRequest, TPostRequst, TPutRequest } from "../shared/types";
 
 const instance = axios.create({
     baseURL: "https://mytickets-cms.herokuapp.com/api/",
