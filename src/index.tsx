@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
-import App from './Root';
 import router from './Routes/Routes';
 
 const root = ReactDOM.createRoot(

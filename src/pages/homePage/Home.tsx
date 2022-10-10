@@ -1,12 +1,12 @@
 import React from 'react';
 
-function Root() {
+function Home() {
   console.log(process.env.REACT_APP_API_URI)
   return (
     <div>
-      MY TICKETS APP
+      MY TICKETS APP HOMEPAGE
     </div>
   );
 }
 
-export default Root;
+export default Home;
