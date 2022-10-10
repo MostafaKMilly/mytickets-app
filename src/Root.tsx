@@ -1,6 +1,6 @@
 import React from 'react';
 
-function App() {
+function Root() {
   console.log(process.env.REACT_APP_API_URI)
   return (
     <div>
@@ -9,4 +9,4 @@ function App() {
   );
 }
 
-export default App;
+export default Root;
