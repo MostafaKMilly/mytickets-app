@@ -9,7 +9,7 @@ function Home() {
 	return (
 		<>
 			<div>
-				<Typography color={'primary'}>
+				<Typography variant='h2' color={'primary'}>
 					MY TICKETS APP HOMEPAGE
 				</Typography>
 				<Button color={'secondary'} onClick={() => navigte(`project/${id.toFixed(0)}`)}> create new project </Button>

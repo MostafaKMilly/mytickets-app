@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import router from './Routes/Routes';
-import { ThemeProvider } from '@mui/material';
+import { responsiveFontSizes, ThemeProvider } from '@mui/material';
 import { theme } from './themes/BaseTheme';
 
 const root = ReactDOM.createRoot(
@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
 	<React.StrictMode>
-		<ThemeProvider theme={theme}>
+		<ThemeProvider theme={responsiveFontSizes(theme)}>
 			<RouterProvider router={router} />
 		</ThemeProvider>
 	</React.StrictMode>
