@@ -18,6 +18,7 @@ instance.interceptors.request.use((config) => {
         ...config.headers,
         authorization: auth
     }
+    return config
 })
 
 
