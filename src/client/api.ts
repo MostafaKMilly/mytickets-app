@@ -2,7 +2,7 @@ import axios from "axios"
 import { TDeleteRquest, TGetRequest, TPostRequst, TPutRequest } from "../shared/types";
 
 const instance = axios.create({
-    baseURL: "https://mytickets-cms.herokuapp.com/api/",
+    baseURL: "https://mytickets.herokuapp.com/api/",
     timeout: 5000,
     headers: {
         "Content-Type": "application/json",
