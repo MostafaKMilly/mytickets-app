@@ -2,7 +2,7 @@ import * as Yup from "yup"
 
 export const loginFormValidationSchema = Yup.object({
     username: Yup.string()
-        .max(15, "Username must be 15 characters or less")
+        .max(20, "Username must be 20 characters or less")
         .required("Username is required"),
     password: Yup.string()
         .required("Please enter a password")

@@ -1,9 +1,10 @@
 import React from "react";
 import { useLoginForm } from "../hooks/useLoginForm";
 import { Stack, TextField, Box, Button } from "@mui/material";
+import { Form } from "react-router-dom";
 
 function LoginForm() {
-  const { getFieldProps, touched, errors, handleSubmit } = useLoginForm();
+  const { getFieldProps, touched, errors } = useLoginForm();
 
   return (
     <Box
@@ -15,7 +16,7 @@ function LoginForm() {
       }}
       alignSelf="center"
     >
-      <Stack component="form" onSubmit={handleSubmit} spacing={5}>
+      <Stack id="loginForm" method="post" component={Form} spacing={5}>
         <TextField
           id="username"
           label="Username"
@@ -33,7 +34,9 @@ function LoginForm() {
         />
       </Stack>
       <Box mt={8} display="flex" flexDirection={"column"} rowGap={4}>
-        <Button>Login</Button>
+        <Button type="submit" form="loginForm">
+          Login
+        </Button>
         <Button color="secondary">Signup</Button>
       </Box>
     </Box>

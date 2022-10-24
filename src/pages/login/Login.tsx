@@ -2,6 +2,20 @@ import React from "react";
 import { Box, Unstable_Grid2 as Grid } from "@mui/material";
 import { Logo } from "../../shared/components";
 import LoginForm from "./components/LoginForm";
+import API from "../../client/api";
+import { redirect, ActionFunctionArgs } from "react-router-dom";
+
+export const action = async ({ request }: ActionFunctionArgs) => {
+  const formData = await request.formData();
+  const data = {
+    identifier: formData.get("username"),
+    password: formData.get("password"),
+  };
+  const user = await API.post("auth/local", { data });
+  if (user) {
+    return redirect("/dashboard");
+  }
+};
 
 export const Login = () => {
   return (
@@ -38,3 +52,5 @@ export const Login = () => {
     </Box>
   );
 };
+
+Login.action = action;
