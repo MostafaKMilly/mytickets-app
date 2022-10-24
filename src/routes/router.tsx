@@ -6,10 +6,6 @@ import { Signup } from "../pages/signup";
 
 export const router = createBrowserRouter([
   {
-    element: <Dashboard />,
-    path: "/",
-  },
-  {
     element: <Login />,
     path: "/login",
     action: Login.action,
@@ -17,5 +13,10 @@ export const router = createBrowserRouter([
   {
     element: <Signup />,
     path: "/signup",
+    action: Signup.action
+  },
+  {
+    element: <Nav />,
+    path: "/",
   },
 ]);

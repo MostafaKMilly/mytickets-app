@@ -1,10 +1,13 @@
 import React from "react";
 import { useLoginForm } from "../hooks/useLoginForm";
 import { Stack, TextField, Box, Button } from "@mui/material";
-import { Form } from "react-router-dom";
+import { LoadingButton } from '@mui/lab';
+import { Form, useNavigate, useNavigation } from "react-router-dom";
 
 function LoginForm() {
   const { getFieldProps, touched, errors } = useLoginForm();
+  const { state } = useNavigation()
+  const navigate = useNavigate()
 
   return (
     <Box
@@ -34,10 +37,11 @@ function LoginForm() {
         />
       </Stack>
       <Box mt={8} display="flex" flexDirection={"column"} rowGap={4}>
-        <Button type="submit" form="loginForm">
+        <LoadingButton variant="contained" type="submit"
+          form="loginForm" loading={state === "submitting"} loadingIndicator="Saving..." >
           Login
-        </Button>
-        <Button color="secondary">Signup</Button>
+        </LoadingButton>
+        <Button color="secondary" onClick={() => navigate("/signup")}>Signup</Button>
       </Box>
     </Box>
   );

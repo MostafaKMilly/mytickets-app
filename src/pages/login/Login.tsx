@@ -13,7 +13,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   };
   const user = await API.post("auth/local", { data });
   if (user) {
-    return redirect("/dashboard");
+    return redirect("/");
   }
 };
 
