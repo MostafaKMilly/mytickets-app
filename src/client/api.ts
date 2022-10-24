@@ -61,7 +61,7 @@ const put = <T, R>(url: string, { data, ...config }: TPutRequest<T, R>): Promise
  * @param {TDeleteRquest} requestConfig - delete request config
  * @returns Promise
  */
-const remove = <T, R>(url: string, config?: TDeleteRquest): Promise<T> => {
+const remove = <T>(url: string, config?: TDeleteRquest): Promise<T> => {
     return instance.delete(url, config)
 }
 
