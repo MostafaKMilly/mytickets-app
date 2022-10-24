@@ -1,15 +1,15 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Rotues } from "./routes/Routes";
+import { BrowserRouter as Router, RouterProvider } from "react-router-dom";
 import { CssBaseline, responsiveFontSizes, ThemeProvider } from "@mui/material";
 import { theme } from "./theme/theme";
+import { router } from "./routes/router";
 
 function App() {
   return (
     <ThemeProvider theme={responsiveFontSizes(theme)}>
       <CssBaseline />
       <Router>
-        <Rotues />
+        <RouterProvider router={router} />
       </Router>
     </ThemeProvider>
   );
