@@ -5,6 +5,13 @@ import LoginForm from "./components/LoginForm";
 import API from "../../client/api";
 import { redirect, ActionFunctionArgs } from "react-router-dom";
 
+export const loader = () => {
+  const token = localStorage.getItem("token")
+  if (token) {
+    return redirect("/")
+  }
+};
+
 export const action = async ({ request }: ActionFunctionArgs) => {
   const formData = await request.formData();
   const data = {
@@ -17,14 +24,6 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     return redirect("/");
   }
 };
-
-export const loader = () => {
-  const token = localStorage.getItem("token")
-  if (token) {
-    return redirect("/")
-  }
-};
-
 
 export const Login = () => {
   return (

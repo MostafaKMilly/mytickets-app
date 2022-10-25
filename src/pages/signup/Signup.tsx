@@ -5,6 +5,13 @@ import API from "../../client/api";
 import { redirect, ActionFunctionArgs } from "react-router-dom";
 import SignupForm from "./components/SignupForm";
 
+export const loader = () => {
+    const token = localStorage.getItem("token")
+    if (token) {
+        return redirect("/")
+    }
+};
+
 export const action = async ({ request }: ActionFunctionArgs) => {
     const formData = await request.formData();
     const data = {
@@ -19,12 +26,6 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     }
 };
 
-export const loader = () => {
-    const token = localStorage.getItem("token")
-    if (token) {
-        redirect("/")
-    }
-};
 
 
 export const Signup = () => {
