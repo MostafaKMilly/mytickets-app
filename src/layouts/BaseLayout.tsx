@@ -1,10 +1,11 @@
 import React from 'react';
-import { LoaderFunctionArgs, redirect } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
 import API from '../client/api';
 
-const loader = async (request: LoaderFunctionArgs) => {
+const loader = async () => {
     const user = await API.get("users/me")
     if (!user) {
+        localStorage.clear()
         return redirect("/login")
     }
 }

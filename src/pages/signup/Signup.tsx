@@ -19,6 +19,14 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     }
 };
 
+export const loader = () => {
+    const token = localStorage.getItem("token")
+    if (token) {
+        redirect("/")
+    }
+};
+
+
 export const Signup = () => {
     return (
         <Box overflow="hidden" height="100vh">
@@ -56,3 +64,4 @@ export const Signup = () => {
 };
 
 Signup.action = action;
+Signup.loader = loader;

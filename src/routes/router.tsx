@@ -11,11 +11,13 @@ export const router = (client: QueryClient) => createBrowserRouter([
     element: <Login />,
     path: "/login",
     action: Login.action,
+    loader: Login.loader
   },
   {
     element: <Signup />,
     path: "/signup",
-    action: Signup.action
+    action: Signup.action,
+    loader: Signup.loader
   },
   {
     element: <BaseLayout />,
