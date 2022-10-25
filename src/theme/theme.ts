@@ -74,7 +74,29 @@ export const theme = createTheme({
         MuiTextField: {
             defaultProps: {
                 variant: "standard"
-            }
+            },
+            variants: [{
+                props: {
+                    variant: "outlined",
+                },
+                style: {
+                    minWidth: "350px",
+                    "& fieldset": {
+                        border: `1px solid ${secondary.main} !important`,
+                    },
+                    "&:hover": {
+                        "& fieldset": {
+                            border: `1px solid ${secondary.dark} !important`
+                        }
+                    },
+                    "& .MuiInputBase-root": {
+                        paddingTop: "4px",
+                        paddingBottom: "4px",
+                        borderRadius: "11px"
+                    },
+                    color: "#3F2525"
+                }
+            }]
         },
         MuiFormLabel: {
             styleOverrides: {
@@ -82,7 +104,8 @@ export const theme = createTheme({
                     color: "#302D2D !important",
                 }
             }
-        }
+        },
+
     }
 })
 

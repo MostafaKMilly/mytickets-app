@@ -3,7 +3,12 @@ import React from 'react';
 
 function Container({ children, ...props }: TProps) {
     return (
-        <MuiContainer maxWidth={false} sx={{ px: "50px !important", py: "7px" }} {...props}>
+        <MuiContainer maxWidth={false} sx={{
+            px: {
+                xs: "25px !important",
+                md: "50px !important"
+            }, py: "7px"
+        }} {...props}>
             {children}
         </MuiContainer>
     );
