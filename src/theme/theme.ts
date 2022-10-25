@@ -1,4 +1,4 @@
-import { createTheme, PaletteColorOptions } from "@mui/material";
+import { createTheme, PaletteColorOptions, Palette, PaletteColor } from "@mui/material";
 
 export const primary: Color = {
     main: "#ab2fd6",
@@ -26,7 +26,7 @@ export const theme = createTheme({
         fontWeightRegular: 400,
         fontWeightMedium: 500,
         fontWeightBold: 600,
-        h5: {
+        h6: {
             fontWeight: "bold"
         }
     },
@@ -105,7 +105,22 @@ export const theme = createTheme({
                 }
             }
         },
+        MuiIconButton: {
+            styleOverrides: {
+                root: ({ ownerState, theme }) => {
+                    const isDefault = ownerState.color === "default" || ownerState.color === "inherit"
+                    const backgroundColor = isDefault ? ownerState.color : (theme.palette[ownerState.color as keyof Palette || "primary"] as PaletteColor)?.main
+                    return {
+                        backgroundColor,
+                        "&:hover": {
+                            backgroundColor
+                        },
+                        color: "white"
+                    }
+                }
+            }
 
+        }
     }
 })
 

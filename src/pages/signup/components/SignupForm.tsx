@@ -30,7 +30,7 @@ function SignupForm() {
                 />
                 <TextField
                     id="email"
-                    label="email"
+                    label="Email"
                     error={touched.email && Boolean(errors.email)}
                     helperText={touched.email && errors.email}
                     {...getFieldProps("email")}

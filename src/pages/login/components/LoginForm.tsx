@@ -1,14 +1,14 @@
 import React from "react";
 import { useLoginForm } from "../hooks/useLoginForm";
 import { Stack, TextField, Box, Button } from "@mui/material";
-import { LoadingButton } from '@mui/lab';
+import { LoadingButton } from "@mui/lab";
 import { Form, useNavigate, useNavigation } from "react-router-dom";
-import _ from "lodash"
+import _ from "lodash";
 
 function LoginForm() {
   const { getFieldProps, touched, errors, isValid, dirty } = useLoginForm();
-  const { state } = useNavigation()
-  const navigate = useNavigate()
+  const { state } = useNavigation();
+  const navigate = useNavigate();
 
   return (
     <Box
@@ -38,13 +38,19 @@ function LoginForm() {
         />
       </Stack>
       <Box mt={8} display="flex" flexDirection={"column"} rowGap={4}>
-        <LoadingButton variant="contained" type="submit"
-          form="loginForm" loading={state === "submitting"}
+        <LoadingButton
+          variant="contained"
+          type="submit"
+          form="loginForm"
+          loading={state === "submitting"}
           loadingIndicator="Saving..."
-          disabled={(!dirty || !isValid) && !_.isEmpty(touched)}>
+          disabled={(!dirty || !isValid) && !_.isEmpty(touched)}
+        >
           Login
         </LoadingButton>
-        <Button color="secondary" onClick={() => navigate("/signup")}>Signup</Button>
+        <Button color="secondary" onClick={() => navigate("/signup")}>
+          Signup
+        </Button>
       </Box>
     </Box>
   );
