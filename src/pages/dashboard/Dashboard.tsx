@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Button,
-  IconButton,
-  Typography,
-  Unstable_Grid2 as Grid,
-} from "@mui/material";
+import { Box, Button, IconButton, Typography, Link } from "@mui/material";
 import Add from "@mui/icons-material/Add";
 import { ProjectCard } from "./components";
 import { PROJECTS_DATA } from "./constants/Projects";
@@ -46,10 +40,13 @@ function Dashboard() {
           <Add />
         </IconButton>
       </Box>
-      <Box component={Slider} {...settings} my={3}>
+      <Box component={Slider} {...settings} mt={3}>
         {PROJECTS_DATA.slice(0, 6).map((project) => (
           <ProjectCard {...project} key={project.id} />
         ))}
+      </Box>
+      <Box width="100%" display="flex" justifyContent="end" my={3}>
+        <Link color="#4fc3f7">View all</Link>
       </Box>
     </Box>
   );
