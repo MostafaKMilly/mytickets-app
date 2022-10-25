@@ -3,11 +3,13 @@ import { Stack, TextField, Box, Button } from "@mui/material";
 import { Form, useNavigate, useNavigation } from "react-router-dom";
 import { useSignupForm } from "../hooks/useSignupForm";
 import { LoadingButton } from "@mui/lab";
+import _ from "lodash"
 
 function SignupForm() {
-    const { getFieldProps, touched, errors } = useSignupForm();
+    const { getFieldProps, touched, errors, isValid, dirty } = useSignupForm();
     const navigate = useNavigate()
     const { state } = useNavigation()
+
     return (
         <Box
             my={7}
@@ -43,8 +45,11 @@ function SignupForm() {
                 />
             </Stack>
             <Box mt={8} display="flex" flexDirection={"column"} rowGap={4}>
-                <LoadingButton variant="contained" type="submit" form="signupForm"
-                    loading={state === "submitting"} loadingIndicator="Saving...">
+                <LoadingButton variant="contained" type="submit"
+                    form="signupForm"
+                    loading={state === "submitting"}
+                    loadingIndicator="Saving..."
+                    disabled={(!dirty || !isValid) && !_.isEmpty(touched)}>
                     Signup
                 </LoadingButton>
                 <Button color="secondary" onClick={() => navigate("/login")}>Already have account ? signin</Button>

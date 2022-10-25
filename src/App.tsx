@@ -5,14 +5,27 @@ import { theme } from "./theme/theme";
 import { router } from "./routes/router";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnMount: false,
+      refetchOnWindowFocus: false
+    }
+  }
+})
+
 
 function App() {
   return (
-    <ThemeProvider theme={responsiveFontSizes(theme)}>
-      <CssBaseline />
-      <ToastContainer limit={3} />
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={responsiveFontSizes(theme)}>
+        <CssBaseline />
+        <ToastContainer limit={3} />
+        <RouterProvider router={router(queryClient)} />
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
 

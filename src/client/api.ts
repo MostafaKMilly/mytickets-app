@@ -1,6 +1,6 @@
-import axios, { AxiosError } from "axios"
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios"
 import { toast } from "react-toastify";
-import { TDeleteRquest, TErrorResponse, TGetRequest, TPostRequst, TPutRequest } from "../shared/types";
+import { TErrorResponse, TransformResFn } from "../shared/types";
 
 const instance = axios.create({
     baseURL: "https://mytickets.herokuapp.com/api/",
@@ -22,6 +22,7 @@ instance.interceptors.request.use((config) => {
     return config
 })
 
+
 // response interceptor to catch all errors
 instance.interceptors.response.use(function (response) {
     return response;
@@ -29,39 +30,72 @@ instance.interceptors.response.use(function (response) {
     toast(response?.data?.error?.message, { type: "error", position: toast.POSITION.TOP_CENTER })
 });
 
+
 /**
  * @param string url - endpoint url
- * @param {TGetRequest} requestConfig - get request config
+ * @param transformResponse callback to change response data
+ * @param {AxiosRequestConfig} config - get request config
  * @returns Promise
  */
-const get = <T, R>(url: string, config?: TGetRequest<T, R>): Promise<T> => {
-    return instance.get(url, config);
+const get = <T = AxiosResponse, R = Record<string, any>>(url: string, transformResponse?: TransformResFn<T, R>, config?: AxiosRequestConfig): Promise<T> => {
+    return instance.get(url, config).then((res: any) => {
+        return new Promise<T>((resolve) => {
+            if (transformResponse) {
+                resolve(transformResponse(res.data))
+            }
+            else {
+                resolve(res)
+            }
+        })
+    })
+
 }
 
 /**
  * @param string url - endpoint url
- * @param {TPostRequst} requestConfig - post request config
+ * @param Record<string,any> data - reqeust data
+ * @param {AxiosRequestConfig} requestConfig - post request config
  * @returns Promise
  */
-const post = <T, R>(url: string, { data, ...config }: TPostRequst<T, R>): Promise<T> => {
-    return instance.post(url, data, config);
+const post = <T = AxiosResponse, R = Record<string, any>>(url: string, data: Record<string, any>, transformResponse?: TransformResFn<T, R>, config?: AxiosRequestConfig): Promise<T> => {
+    return instance.post(url, data, config).then((res: any) => {
+        return new Promise<T>((resolve) => {
+            if (transformResponse) {
+                resolve(transformResponse(res.data))
+            }
+            else {
+                resolve(res)
+            }
+        })
+    });
 }
 
 /**
  * @param string url - endpoint url
- * @param {TPutRequest} requestConfig - put request config
+ * @param Record<string,any> data - reqeust data
+ * @param {AxiosRequestConfig} requestConfig - put request config
  * @returns Promise
  */
-const put = <T, R>(url: string, { data, ...config }: TPutRequest<T, R>): Promise<T> => {
-    return instance.put(url, data, config)
+const put = <T = AxiosResponse, R = Record<string, any>>(url: string, data: Record<string, any>, transformResponse?: TransformResFn<T, R>, config?: AxiosRequestConfig): Promise<T> => {
+    return instance.put(url, data, config).then((res: any) => {
+        return new Promise<T>((resolve) => {
+            if (transformResponse) {
+                resolve(transformResponse(res.data))
+            }
+            else {
+                resolve(res)
+            }
+        })
+    });
 }
+
 
 /**
  * @param string url - endpoint url
- * @param {TDeleteRquest} requestConfig - delete request config
+ * @param {AxiosRequestConfig} requestConfig - delete request config
  * @returns Promise
  */
-const remove = <T>(url: string, config?: TDeleteRquest): Promise<T> => {
+const remove = <T = AxiosResponse>(url: string, config?: AxiosRequestConfig): Promise<T> => {
     return instance.delete(url, config)
 }
 

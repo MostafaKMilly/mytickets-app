@@ -1,10 +1,12 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
-import { Dashboard } from "../pages/dashboard";
+import { BaseLayout } from "../layouts";
 import { Login } from "../pages/login";
 import { Signup } from "../pages/signup";
+import { QueryClient } from "@tanstack/react-query";
 
-export const router = createBrowserRouter([
+
+export const router = (client: QueryClient) => createBrowserRouter([
   {
     element: <Login />,
     path: "/login",
@@ -16,7 +18,8 @@ export const router = createBrowserRouter([
     action: Signup.action
   },
   {
-    element: <Nav />,
+    element: <BaseLayout />,
     path: "/",
+    loader: BaseLayout.loader
   },
 ]);

@@ -11,8 +11,9 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     identifier: formData.get("username"),
     password: formData.get("password"),
   };
-  const user = await API.post("auth/local", { data });
+  const user = await API.post("auth/local", data);
   if (user) {
+    localStorage.setItem("token", user.data.jwt)
     return redirect("/");
   }
 };
