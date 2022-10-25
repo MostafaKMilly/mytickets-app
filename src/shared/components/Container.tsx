@@ -1,11 +1,11 @@
-import { ContainerProps } from '@mui/material';
+import { ContainerProps, Container as MuiContainer } from '@mui/material';
 import React from 'react';
 
 function Container({ children, ...props }: TProps) {
     return (
-        <Container maxWidth={false} sx={{ px: "50px !important", py: "7px" }} {...props}>
+        <MuiContainer maxWidth={false} sx={{ px: "50px !important", py: "7px" }} {...props}>
             {children}
-        </Container>
+        </MuiContainer>
     );
 }
 
