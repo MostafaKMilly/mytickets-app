@@ -53,6 +53,8 @@ export const theme = createTheme({
                     margin: 0,
                     padding: 0
                 },
+                ".slick-list": { margin: "0 -10px", paddingTop: "4px", paddingBottom: "4px" },
+                ".slick-slide>div": { padding: "0 10px" },
                 "&": {
                     scrollbarWidth: "thin",
                     scrollbarColor: "#bfbfbf transparent",
