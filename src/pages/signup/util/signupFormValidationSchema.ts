@@ -7,7 +7,7 @@ export const signupFormValidationSchema = Yup.object({
     password: Yup.string()
         .required("Please enter a password")
         .min(8, "Password too short")
-        .test("Is valid password", "Is not valid password", (value) => {
+        .test("Is valid password", "Password should contained at least one upercase character", (value) => {
             if (!value) {
                 return false
             }
