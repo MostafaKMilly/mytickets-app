@@ -1,6 +1,8 @@
+import { Box } from '@mui/material';
 import React from 'react';
 import { redirect } from 'react-router-dom';
 import API from '../client/api';
+import { AppBar } from '../shared/components';
 
 const loader = async () => {
     const user = await API.get("users/me")
@@ -12,9 +14,9 @@ const loader = async () => {
 
 export const BaseLayout = () => {
     return (
-        <div>
-
-        </div>
+        <Box>
+            <AppBar />
+        </Box>
     );
 }
 
