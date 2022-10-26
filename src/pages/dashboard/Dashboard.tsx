@@ -47,7 +47,7 @@ function Dashboard() {
       </Box>
       <Box width="100%" display="flex" justifyContent="end" mt={3} mb={2}>
         <Link
-          color="#4fc3f7"
+          color="#0065FF"
           variant="body2"
           sx={{
             cursor: "pointer",
