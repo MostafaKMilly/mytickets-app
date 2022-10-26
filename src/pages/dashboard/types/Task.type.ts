@@ -1,6 +1,7 @@
 export type Task = {
     id: number;
-    type: string;
+    type: "task" | "bug" | "perfomance";
+    title: string;
     slug: string;
     assosiatedProject: string;
     creator: {

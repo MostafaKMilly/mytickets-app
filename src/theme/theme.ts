@@ -117,7 +117,7 @@ export const theme = createTheme({
                         "&:hover": {
                             backgroundColor
                         },
-                        color: "white"
+                        color: !isDefault ? "white" : "inherit"
                     }
                 }
             }

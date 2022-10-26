@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Button, IconButton, Typography, Link } from "@mui/material";
 import Add from "@mui/icons-material/Add";
-import { ProjectCard } from "./components";
+import { ProjectCard, TasksList } from "./components";
 import { PROJECTS_DATA } from "./constants/Projects";
 import { useSliderSettings } from "./hooks/useSliderSettings";
 import Slider from "react-slick";
@@ -57,6 +57,7 @@ function Dashboard() {
       </Box>
       <Box>
         <Typography variant="h6">My tasks</Typography>
+        <TasksList />
       </Box>
     </Box>
   );

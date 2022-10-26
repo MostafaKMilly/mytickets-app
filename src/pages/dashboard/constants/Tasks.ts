@@ -9,7 +9,8 @@ export const TASKS_DATA: Task[] = [
             avatar: "assets/images/Avatar.png",
             name: "Hosney"
         },
-        slug: "ticket-1"
+        slug: "ticket-1",
+        title: "This is ticket"
     },
     {
         id: 2,
@@ -19,7 +20,8 @@ export const TASKS_DATA: Task[] = [
             avatar: "assets/images/Avatar.png",
             name: "Hosney"
         },
-        slug: "ticket-1"
+        slug: "ticket-1",
+        title: "This is ticket"
     },
     {
         id: 3,
@@ -29,6 +31,7 @@ export const TASKS_DATA: Task[] = [
             avatar: "assets/images/Avatar.png",
             name: "Hosney"
         },
-        slug: "ticket-1"
+        slug: "ticket-1",
+        title: "This is ticket"
     },
 ]
