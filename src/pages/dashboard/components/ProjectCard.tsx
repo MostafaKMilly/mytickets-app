@@ -40,6 +40,7 @@ export const ProjectCard = ({
               alt={`Assigne ${assigne.id}`}
               src={assigne.avatar}
               sx={{ width: "20px", height: "20px" }}
+              key={assigne.id}
             />
           ))}
         </AvatarGroup>

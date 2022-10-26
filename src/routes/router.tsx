@@ -23,7 +23,7 @@ export const router = (client: QueryClient) =>
     {
       element: <BaseLayout />,
       path: "/",
-      loader: BaseLayout.loader,
+      loader: BaseLayout.loader(client),
       children: [
         {
           element: <Dashboard />,

@@ -45,8 +45,18 @@ function Dashboard() {
           <ProjectCard {...project} key={project.id} />
         ))}
       </Box>
-      <Box width="100%" display="flex" justifyContent="end" my={3}>
-        <Link color="#4fc3f7">View all</Link>
+      <Box width="100%" display="flex" justifyContent="end" mt={1} mb={2}>
+        <Link
+          color="#4fc3f7"
+          sx={{
+            cursor: "pointer",
+          }}
+        >
+          View all
+        </Link>
+      </Box>
+      <Box>
+        <Typography variant="h6">My tasks</Typography>
       </Box>
     </Box>
   );
