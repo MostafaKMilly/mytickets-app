@@ -45,9 +45,10 @@ function Dashboard() {
           <ProjectCard {...project} key={project.id} />
         ))}
       </Box>
-      <Box width="100%" display="flex" justifyContent="end" mt={1} mb={2}>
+      <Box width="100%" display="flex" justifyContent="end" mt={3} mb={2}>
         <Link
           color="#4fc3f7"
+          variant="body2"
           sx={{
             cursor: "pointer",
           }}
