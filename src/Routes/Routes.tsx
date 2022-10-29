@@ -1,5 +1,5 @@
 import {
-	createBrowserRouter
+	createBrowserRouter, redirect
 } from "react-router-dom";
 import Backlog from "../pages/backlog/Backlog";
 import Home from "../pages/homePage/Home";
@@ -10,41 +10,56 @@ import Settings from "../pages/settingsPage/Settings";
 import Signup from "../pages/signup/Signup";
 import Sprint from "../pages/sprint/Sprint";
 
+const loaderFunction =  () => {
+  if (!localStorage.getItem('ourToken')) {
+	console.log('redirecting')
+    return redirect("/login");
+  }
+};
+
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Home/>,
+		element: <Home />,
+
 	},
 	{
 		path: 'login',
-		element: <Login/>,
+		element: <Login />,
 	},
 	{
 		path: 'signup',
-		element: <Signup/>,
+		element: <Signup />,
 	},
 	{
 		path: '/project/:projectId',
-		element: <Project/>,
-		children:[
+		element: <Project />,
+		children: [
 			{
 				path: 'sprint',
-				element: <Sprint/>,
+				element: <Sprint />,
 			},
 			{
 				path: 'backlog',
-				element: <Backlog/>,
+				element: <Backlog />,
 			},
 			{
 				path: 'people',
-				element: <People/>,
+				element: <People />,
 			},
 			{
 				path: 'settings',
-				element: <Settings/>,
+				element: <Settings />,
 			},
 		]
 	}
-])
+].map((item) => {
+	if (!['login', 'signup'].includes(item.path)){
+		console.log(item);
+		return {
+			...item, loader: loaderFunction
+		}}
+	return item;
+}));
 
 export default router

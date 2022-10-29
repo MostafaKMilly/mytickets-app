@@ -15,7 +15,7 @@ function LoginForm(props: any) {
 			onSubmit={(values) => { auth.attemptAuthenticate(values); }}
 		><Form>
 
-				<Field type='text' name='username' text='asd'/>
+				<Field type='text' name='username'/>
 				<Field type='password' name='password' />
 				<ErrorMessage name='errorMessage' />
 				<button type='submit'>Login</button>

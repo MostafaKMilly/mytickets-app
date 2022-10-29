@@ -1,25 +1,15 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-import { Login } from './pages/login';
+import React, { useEffect } from 'react';
+import { Navigate, RouterProvider } from "react-router-dom";
+import router from './Routes/Routes';
+import { useAuthenticate } from './shared';
 
 function App() {
-	console.log(process.env.REACT_APP_API_URI)
-	console.log('amer');
+	useEffect(()=>{
+		console.log(router.routes)
+	})
 	return (
-		<BrowserRouter>
-			<Routes>
-				<Route path="/" element={<Outlet />}>
-					<Route index element={<Login />} />
-
-				</Route>
-			</Routes>
-		</BrowserRouter>
+		<RouterProvider  router={router} />
 	);
-	//   return (
-	//     <div>
-	//       MY TICKETS APP
-	//     </div>
-	//   );
 }
 
 export default App;
