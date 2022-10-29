@@ -1,16 +1,10 @@
-import React from "react";
 import { Box, Button, IconButton, Typography, Link } from "@mui/material";
 import Add from "@mui/icons-material/Add";
-import { ProjectCard, TasksList } from "./components";
-import { PROJECTS_DATA } from "./constants/Projects";
-import { useSliderSettings } from "./hooks/useSliderSettings";
-import Slider from "react-slick";
+import { ProjectsList, TasksList } from "./components";
 
 const loader = () => {};
 
 function Dashboard() {
-  const settings = useSliderSettings();
-
   return (
     <Box>
       <Box display="flex" width="100%" justifyContent="space-between">
@@ -40,11 +34,7 @@ function Dashboard() {
           <Add />
         </IconButton>
       </Box>
-      <Box component={Slider} {...settings} mt={3}>
-        {PROJECTS_DATA.slice(0, 6).map((project) => (
-          <ProjectCard {...project} key={project.id} />
-        ))}
-      </Box>
+      <ProjectsList />
       <Box width="100%" display="flex" justifyContent="end" mt={3} mb={2}>
         <Link
           color="#0065FF"
