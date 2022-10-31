@@ -50,23 +50,51 @@ const StyledDialogTitle = (props: DialogTitleProps) => {
   );
 };
 
-function GenericDialog({ open, onClose, onSubmit, dialog, children }: TProps) {
+function GenericDialog({
+  onClose,
+  onSubmit,
+  dialog,
+  children,
+  sx,
+  ...props
+}: TProps) {
   const { title, closeButton, submitButton } = dialog;
   const { label: submitButtonLabel, ...submitButtonProps } = submitButton;
   const { label: closeButtonLabel, ...closeButtonProps } = closeButton;
 
   return (
-    <StyledDialog onClose={onClose} open={open}>
+    <StyledDialog
+      onClose={onClose}
+      maxWidth="md"
+      fullWidth
+      {...props}
+      sx={{ ...(sx as any) }}
+    >
       <StyledDialogTitle onClose={onClose}>{title}</StyledDialogTitle>
       <DialogContent dividers>{children}</DialogContent>
-      <DialogActions>
-        {submitButton && (
-          <Button variant="contained" {...submitButtonProps} onClick={onSubmit}>
+      <DialogActions sx={{ justifyContent: "flex-start", columnGap: 1 }}>
+        {!!submitButton && (
+          <Button
+            variant="contained"
+            sx={{
+              px: 4,
+            }}
+            {...submitButtonProps}
+            onClick={onSubmit}
+          >
             {submitButtonLabel}
           </Button>
         )}
-        {closeButton && (
-          <Button variant="contained" {...closeButtonProps} onClick={onClose}>
+        {!!closeButton && (
+          <Button
+            variant="contained"
+            color="secondary"
+            sx={{
+              px: 4,
+            }}
+            {...closeButtonProps}
+            onClick={onClose}
+          >
             {closeButtonLabel}
           </Button>
         )}
@@ -82,7 +110,7 @@ type TProps = Omit<DialogProps, "onClose" | "onSubmit"> & {
     closeButton: ButtonProps;
   };
   onClose: () => void;
-  onSubmit: () => void;
+  onSubmit?: () => void;
 };
 
 type ButtonProps = MuiButtonProps & {

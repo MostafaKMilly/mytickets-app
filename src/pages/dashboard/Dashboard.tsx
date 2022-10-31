@@ -1,10 +1,18 @@
 import { Box, Button, IconButton, Typography, Link } from "@mui/material";
 import Add from "@mui/icons-material/Add";
 import { ProjectsList, TasksList } from "./components";
+import { useState } from "react";
+import GenericDialog from "../../shared/components/GenericDialog";
 
 const loader = () => {};
 
 function Dashboard() {
+  const [openCreateProjectDialog, setOpenCreateProjectDialog] = useState(false);
+
+  const handleCreateProjectDialog = () => {
+    setOpenCreateProjectDialog(!openCreateProjectDialog);
+  };
+
   return (
     <Box>
       <Box display="flex" width="100%" justifyContent="space-between">
@@ -19,6 +27,7 @@ function Dashboard() {
               sm: "flex",
             },
           }}
+          onClick={handleCreateProjectDialog}
         >
           Create new project
         </Button>
@@ -50,6 +59,21 @@ function Dashboard() {
         <Typography variant="h6">My tasks</Typography>
         <TasksList />
       </Box>
+      <GenericDialog
+        open={openCreateProjectDialog}
+        onClose={handleCreateProjectDialog}
+        dialog={{
+          title: "Create Project",
+          submitButton: {
+            label: "save",
+          },
+          closeButton: {
+            label: "close",
+          },
+        }}
+      >
+        <></>
+      </GenericDialog>
     </Box>
   );
 }

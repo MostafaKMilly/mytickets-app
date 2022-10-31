@@ -2,6 +2,7 @@ import { Paper, Box } from "@mui/material";
 import { getRandomColor } from "../utils/getRandomColor";
 import { Typography, AvatarGroup, Avatar } from "@mui/material";
 import { Project } from "../types/Project.types";
+import { useMemo } from "react";
 
 export const ProjectCard = ({
   title,
@@ -11,6 +12,8 @@ export const ProjectCard = ({
   status,
   tasks,
 }: Project) => {
+  const randomColor = useMemo(() => getRandomColor(), []);
+
   return (
     <Paper
       sx={{
@@ -26,7 +29,7 @@ export const ProjectCard = ({
         width="12px"
         sx={{
           position: "absolute",
-          background: getRandomColor(),
+          background: randomColor,
           boxShadow: "0px 0px 3px rgba(0, 0, 0, 0.25)",
         }}
       />

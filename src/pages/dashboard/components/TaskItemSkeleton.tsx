@@ -22,7 +22,7 @@ export const TaskItemSkeleton = () => {
         <Box>
           <Skeleton
             variant="text"
-            width="214px"
+            width="190px"
             height="15px"
             sx={{ mb: "8px" }}
           />
