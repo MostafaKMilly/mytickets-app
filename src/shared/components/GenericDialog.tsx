@@ -72,7 +72,12 @@ function GenericDialog({
     >
       <StyledDialogTitle onClose={onClose}>{title}</StyledDialogTitle>
       <DialogContent dividers>{children}</DialogContent>
-      <DialogActions sx={{ justifyContent: "flex-start", columnGap: 1 }}>
+      <DialogActions
+        sx={{
+          justifyContent: "flex-start",
+          columnGap: 1,
+        }}
+      >
         {!!submitButton && (
           <Button
             variant="contained"

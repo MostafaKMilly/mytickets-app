@@ -63,12 +63,12 @@ function Dashboard() {
         open={openCreateProjectDialog}
         onClose={handleCreateProjectDialog}
         dialog={{
-          title: "Create Project",
+          title: "Add Project",
           submitButton: {
-            label: "save",
+            label: "Create",
           },
           closeButton: {
-            label: "close",
+            label: "Close",
           },
         }}
       >
