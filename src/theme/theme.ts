@@ -80,6 +80,7 @@ export const theme = createTheme({
             variants: [{
                 props: {
                     variant: "outlined",
+                    color:"secondary"
                 },
                 style: {
                     minWidth: "350px",
