@@ -1,9 +1,10 @@
 import axios from "axios";
 import { TGetRequest } from "../types";
-import { errorHandling } from "./utils/errorHandling";
+
+export const BASE_URL = "https://mytickets-cms.herokuapp.com/api";
 
 export const client = axios.create({
-  baseURL: "https://mytickets-cms.herokuapp.com/api",
+  baseURL: BASE_URL,
   headers: {
     "Content-Type": "application/json",
     accept: "application/json",
@@ -37,22 +38,20 @@ client.interceptors.response.use(
 //
 export const getRequest = async (getReqParams: TGetRequest) => {
   const response = await client.get(getReqParams.url, getReqParams.params);
-  console.log(response.data);
-  return response.data;
+  return response;
 };
 
-export const postRequest = (url: string, payload: any) => {
-  client.post(`/${url}`, payload).then((response) => {
-    console.log(response.data);
-  });
+export const postRequest = async (postReqParams: TGetRequest) => {
+  const response = await client.post(postReqParams.url, postReqParams.params);
+  return response;
 };
 
-export const putRequest = (url: string, payload: any) => {
-  client
-    .patch(`/${url}`, payload)
-    .then((response) => console.log(response.data));
+export const putRequest = async (putReqParams: TGetRequest) => {
+  const response = await client.put(putReqParams.url, putReqParams.params);
+  return response;
 };
 
-export const deleteRequest = (url: string) => {
-  client.delete(`/${url}`).then((response) => console.log(response));
+export const deleteRequest = async (deleteReqParams: TGetRequest) => {
+  const response = await client.delete(deleteReqParams.url, deleteReqParams.params);
+  return response;
 };
