@@ -7,7 +7,6 @@ export const client = axios.create({
   headers: {
     "Content-Type": "application/json",
     accept: "application/json",
-    // Authorization: " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY1ODQ3MjExLCJleHAiOjE2Njg0MzkyMTF9.5iLw68hnuVhdIb2TKeI_SMiCaP4ddMXIlmI5hYmkq50",
   },
 });
 
@@ -16,7 +15,7 @@ client.interceptors.request.use((config) => {
   const userToken = token ? `Bearer ${token}` : "";
   config.headers = {
     ...config.headers,
-    // authorization: userToken,
+    // authorization: userToken, TO ADD
     Authorization:
       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY1NzI5NjgzLCJleHAiOjE2NjgzMjE2ODN9.gh0iSKyaMH3JtBRo1-ZRmkYFApXXCnJ8sQaXo7X1wQw",
   };
@@ -38,9 +37,6 @@ client.interceptors.response.use(
 //make this parameter as a type object that takes a url and anything we need to pass.
 //
 export const getRequest = async (getReqParams: TGetRequest) => {
-  // await axiosClient.get(`/${getReqParams.url}`, getReqParams.params).then((response) => {
-  //   console.log(response.data);
-  // });
   const response = await client.get(getReqParams.url, getReqParams.params);
   console.log(response.data);
   return response.data;
