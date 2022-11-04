@@ -15,9 +15,8 @@ client.interceptors.request.use((config) => {
   const userToken = token ? `Bearer ${token}` : "";
   config.headers = {
     ...config.headers,
-    // authorization: userToken, TO ADD
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY1NzI5NjgzLCJleHAiOjE2NjgzMjE2ODN9.gh0iSKyaMH3JtBRo1-ZRmkYFApXXCnJ8sQaXo7X1wQw",
+
+    Authorization: userToken, //TO ADD
   };
   return config;
 });
