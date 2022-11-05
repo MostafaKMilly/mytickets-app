@@ -1,6 +1,6 @@
 import { Box, Button, IconButton, Typography, Link } from "@mui/material";
 import Add from "@mui/icons-material/Add";
-import { ProjectsList, TasksList } from "./components";
+import { CreateProjectForm, ProjectsList, TasksList } from "./components";
 import { useState } from "react";
 import GenericDialog from "../../shared/components/GenericDialog";
 
@@ -72,7 +72,7 @@ function Dashboard() {
           },
         }}
       >
-        <></>
+        <CreateProjectForm />
       </GenericDialog>
     </Box>
   );
