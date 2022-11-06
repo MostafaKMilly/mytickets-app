@@ -35,6 +35,7 @@ function Dashboard() {
         </Button>
         <IconButton
           color="secondary"
+          onClick={handleCreateProjectDialog}
           sx={{
             display: {
               xs: "inline-flex",
