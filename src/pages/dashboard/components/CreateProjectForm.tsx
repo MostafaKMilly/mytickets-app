@@ -1,11 +1,12 @@
-import { Box, Stack, TextField, Unstable_Grid2 as Grid } from "@mui/material";
 import React from "react";
+import { Box, TextField, Unstable_Grid2 as Grid } from "@mui/material";
+import { useFormikContext } from "formik";
 import { Form } from "react-router-dom";
-import { useCreateProjectForm } from "../hooks/useCreateProjectForm";
+import { PeopleCombo } from "../../../shared/components";
+import { CreateProjectFormTypes } from "../types/Project.types";
 
 export const CreateProjectForm = () => {
-  const { getFieldProps, touched, errors, isValid, dirty } =
-    useCreateProjectForm();
+  const { getFieldProps, touched, errors } = useFormikContext<CreateProjectFormTypes>();
 
   return (
     <Box m={2}>
@@ -24,14 +25,12 @@ export const CreateProjectForm = () => {
             />
           </Grid>
           <Grid xs={12} sm={5}>
-            <TextField
+            <PeopleCombo
               variant="outlined"
               color="primary"
               label="People"
               id="people"
               fullWidth
-              error={touched.people && Boolean(errors.people)}
-              helperText={touched.people && errors.people}
               {...getFieldProps("people")}
             />
           </Grid>

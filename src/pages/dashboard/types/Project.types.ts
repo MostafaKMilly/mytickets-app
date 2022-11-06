@@ -9,3 +9,9 @@ export type Project = {
     tasks: number;
     contributors: number;
 }
+
+export type CreateProjectFormTypes = {
+    projectName?: string;
+    people?: Record<string, any>[];
+    description?: string;
+}

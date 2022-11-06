@@ -80,7 +80,7 @@ export const theme = createTheme({
             variants: [{
                 props: {
                     variant: "outlined",
-                    color:"secondary"
+                    color: "secondary"
                 },
                 style: {
                     minWidth: "350px",
@@ -122,7 +122,18 @@ export const theme = createTheme({
                     }
                 }
             }
-
+        },
+        MuiDialog: {
+            styleOverrides: {
+                root: ({ theme }) => ({
+                    "& .MuiDialogContent-root": {
+                        padding: theme.spacing(2),
+                    },
+                    "& .MuiDialogActions-root": {
+                        padding: theme.spacing(1),
+                    },
+                })
+            }
         }
     }
 })

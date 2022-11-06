@@ -2,12 +2,14 @@ import { Box, Button, IconButton, Typography, Link } from "@mui/material";
 import Add from "@mui/icons-material/Add";
 import { CreateProjectForm, ProjectsList, TasksList } from "./components";
 import { useState } from "react";
-import GenericDialog from "../../shared/components/GenericDialog";
+import { useCreateProjectForm } from "./hooks/useCreateProjectForm";
+import { FormDialog } from "../../shared/components";
 
 const loader = () => {};
 
 function Dashboard() {
   const [openCreateProjectDialog, setOpenCreateProjectDialog] = useState(false);
+  const { initialValues, validationSchema } = useCreateProjectForm();
 
   const handleCreateProjectDialog = () => {
     setOpenCreateProjectDialog(!openCreateProjectDialog);
@@ -59,7 +61,7 @@ function Dashboard() {
         <Typography variant="h6">My tasks</Typography>
         <TasksList />
       </Box>
-      <GenericDialog
+      <FormDialog
         open={openCreateProjectDialog}
         onClose={handleCreateProjectDialog}
         dialog={{
@@ -71,9 +73,11 @@ function Dashboard() {
             label: "Close",
           },
         }}
+        intialValues={initialValues}
+        validationSchema={validationSchema}
       >
         <CreateProjectForm />
-      </GenericDialog>
+      </FormDialog>
     </Box>
   );
 }
