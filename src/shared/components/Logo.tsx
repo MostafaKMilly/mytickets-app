@@ -8,7 +8,7 @@ function Logo(props: TProps) {
             component="img"
             height="30px"
             width="30px"
-            src="assets/images/logo.svg"
+            src="/assets/images/logo.svg"
             {...props}
         />
     );
