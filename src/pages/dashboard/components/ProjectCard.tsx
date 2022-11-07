@@ -3,6 +3,7 @@ import { getRandomColor } from "../utils/getRandomColor";
 import { Typography, AvatarGroup, Avatar } from "@mui/material";
 import { Project } from "../types/Project.types";
 import { useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const ProjectCard = ({
   title,
@@ -13,6 +14,11 @@ export const ProjectCard = ({
   tasks,
 }: Project) => {
   const randomColor = useMemo(() => getRandomColor(), []);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`projects/${id}`);
+  };
 
   return (
     <Paper
@@ -22,7 +28,9 @@ export const ProjectCard = ({
         minWidth: "200px !important",
         position: "relative",
         minHeight: "120px",
+        cursor: "pointer",
       }}
+      onClick={handleClick}
     >
       <Box
         height="100%"
