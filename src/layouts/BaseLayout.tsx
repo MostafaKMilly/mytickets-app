@@ -45,11 +45,11 @@ export const BaseLayout = () => {
           mt: 1,
           flexGrow: 1,
           ...(route === "projects" && {
-            ml: "-260px",
+            ml: "-270px",
           }),
           ...(idDrawerOpen && {
             ml: "0px",
-            width: `calc(100% - 260px)`,
+            width: `calc(100% - 270px)`,
           }),
         }}
       >
