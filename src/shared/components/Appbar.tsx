@@ -113,6 +113,6 @@ export const AppBar = ({ toggleDrawer, drawer }: TProps) => {
 };
 
 type TProps = {
-  toggleDrawer: () => void;
+  toggleDrawer?: () => void;
   drawer?: boolean;
 };

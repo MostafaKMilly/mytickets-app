@@ -1,6 +1,6 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
-import { BaseLayout } from "../layouts";
+import { DashboardLayout, ProtectedLayout, PorjectsLayout } from "../layouts";
 import { Login } from "../pages/login";
 import { Signup } from "../pages/signup";
 import { QueryClient } from "@tanstack/react-query";
@@ -22,18 +22,30 @@ export const router = (client: QueryClient) =>
       loader: Signup.loader,
     },
     {
-      element: <BaseLayout />,
+      element: <ProtectedLayout />,
       path: "/",
-      loader: BaseLayout.loader(client),
+      loader: ProtectedLayout.loader(client),
       children: [
         {
-          element: <Dashboard />,
-          index: true,
-          loader: Dashboard.loader,
+          element: <DashboardLayout />,
+          path: "",
+          children: [
+            {
+              element: <Dashboard />,
+              index: true,
+              loader: Dashboard.loader,
+            },
+          ],
         },
         {
-          element: <Project />,
+          element: <PorjectsLayout />,
           path: "projects/:projectId",
+          children: [
+            {
+              element: <Project />,
+              index: true
+            }
+          ]
         },
       ],
     },
