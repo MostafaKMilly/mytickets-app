@@ -5,7 +5,7 @@ import { Login } from "../pages/login";
 import { Signup } from "../pages/signup";
 import { QueryClient } from "@tanstack/react-query";
 import { Dashboard } from "../pages/dashboard";
-import { Project } from "../pages/project/Project";
+import { ActiveSprint, Backlog, People, Settings } from "../pages/project";
 
 export const router = (client: QueryClient) =>
   createBrowserRouter([
@@ -39,13 +39,25 @@ export const router = (client: QueryClient) =>
         },
         {
           element: <PorjectsLayout />,
-          path: "projects/:projectId",
+          path: "projects/:projectId/",
           children: [
             {
-              element: <Project />,
-              index: true
-            }
-          ]
+              element: <ActiveSprint />,
+              index: true,
+            },
+            {
+              element: <Backlog />,
+              path: "backlog",
+            },
+            {
+              element: <People />,
+              path: "people",
+            },
+            {
+              element: <Settings />,
+              path: "settings",
+            },
+          ],
         },
       ],
     },
