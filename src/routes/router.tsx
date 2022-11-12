@@ -43,7 +43,7 @@ export const router = (client: QueryClient) =>
           path: "projects/:projectId/",
           handle: {
             crumb: (data: string) => (
-              <Link component={RouterLink} to="/projects/1">
+              <Link component={RouterLink} to="/projects/1" variant="body2">
                 {data}
               </Link>
             ),
@@ -53,28 +53,44 @@ export const router = (client: QueryClient) =>
               element: <ActiveSprint />,
               index: true,
               handle: {
-                crumb: () => <Typography color="#A69D8C">My board</Typography>,
+                crumb: () => (
+                  <Typography color="#A69D8C" variant="body2">
+                    My board
+                  </Typography>
+                ),
               },
             },
             {
               element: <Backlog />,
               path: "backlog",
               handle: {
-                crumb: () => <Typography color="#A69D8C">Backlog</Typography>,
+                crumb: () => (
+                  <Typography color="#A69D8C" variant="body2">
+                    Backlog
+                  </Typography>
+                ),
               },
             },
             {
               element: <People />,
               path: "people",
               handle: {
-                crumb: () => <Typography color="#A69D8C">People</Typography>,
+                crumb: () => (
+                  <Typography color="#A69D8C" variant="body2">
+                    People
+                  </Typography>
+                ),
               },
             },
             {
               element: <Settings />,
               path: "settings",
               handle: {
-                crumb: () => <Typography color="#A69D8C">Settings</Typography>,
+                crumb: () => (
+                  <Typography color="#A69D8C" variant="body2">
+                    Settings
+                  </Typography>
+                ),
               },
             },
           ],
@@ -82,7 +98,7 @@ export const router = (client: QueryClient) =>
       ],
       handle: {
         crumb: () => (
-          <Link component={RouterLink} to="/">
+          <Link component={RouterLink} to="/" variant="body2">
             Dashboard
           </Link>
         ),

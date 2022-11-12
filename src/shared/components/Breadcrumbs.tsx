@@ -9,7 +9,7 @@ export const Breadcrumbs = () => {
     .map((match) => match.handle.crumb?.("project 1"));
 
   return (
-    <Box display="flex" columnGap={2} mb={3}>
+    <Box display="flex" columnGap={2} mb={3} alignItems="center">
       {crumbs.map((crumb, index) => (
         <>
           <Box key={index}>{crumb}</Box>

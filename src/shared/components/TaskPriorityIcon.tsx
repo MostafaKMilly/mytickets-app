@@ -1,19 +1,19 @@
 import React from "react";
 import { Box, BoxProps } from "@mui/material";
 
-export const TaskIcon = ({ type, ...props }: Props) => {
+export const TaskPriorityIcon = ({ type, ...props }: Props) => {
   const iconTypes: Record<Props["type"], string> = {
-    bug: "/assets/images/bugIcon.svg",
-    perfomance: "/assets/images/perfomanceIcon.svg",
-    task: "/assets/images/ticketIcon.svg",
+    high: "/assets/images/highPriority.svg",
+    low: "/assets/images/lowPriority.svg",
+    medium: "/assets/images/medPriority.svg",
   };
 
   return (
     <Box
       role="img"
       component="img"
-      height="35px"
-      width="35px"
+      height="20px"
+      width="20px"
       {...props}
       src={iconTypes[type]}
     />
@@ -21,5 +21,5 @@ export const TaskIcon = ({ type, ...props }: Props) => {
 };
 
 type Props = Omit<BoxProps, "src"> & {
-  type: "task" | "bug" | "perfomance";
+  type: "high" | "medium" | "low";
 };
