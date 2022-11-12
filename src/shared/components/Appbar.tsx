@@ -8,6 +8,8 @@ import {
   MenuItem,
   TextField,
   Toolbar,
+  useMediaQuery,
+  Theme,
 } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "./Logo";
@@ -22,6 +24,7 @@ export const AppBar = ({ toggleDrawer, drawer }: TProps) => {
   const { pathname } = useLocation();
   const [, route] = pathname.split("/");
   const idDrawerOpen = drawer && route === "projects";
+  const matches = useMediaQuery<Theme>((theme) => theme.breakpoints.up("sm"));
 
   const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -43,10 +46,12 @@ export const AppBar = ({ toggleDrawer, drawer }: TProps) => {
       elevation={0}
       sx={{
         width: "100%",
-        ml: "0px",
-        ...(idDrawerOpen && {
-          width: `calc(100% - 260px)`,
-          ml: `260px`,
+        ...(matches && {
+          ml: "0px",
+          ...(idDrawerOpen && {
+            width: `calc(100% - 260px)`,
+            ml: `260px`,
+          }),
         }),
       }}
     >
