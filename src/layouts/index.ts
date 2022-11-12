@@ -1,3 +1,3 @@
 export { DashboardLayout } from "./DashboardLayout"
-export { PorjectsLayout } from "./PorjectsLayout"
+export { ProjectsLayout } from "./ProjectsLayout"
 export { ProtectedLayout } from "./ProtectedLayout"
