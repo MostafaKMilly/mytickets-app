@@ -6,7 +6,7 @@ import { Droppable } from "@hello-pangea/dnd";
 
 export const Column = ({ column, tasks }: ColumnProps) => {
   return (
-    <Box sx={{ background: "#F4F5F7", minWidth: 320, px: 2, py: 1.5 }}>
+    <Box sx={{ background: "#F4F5F7", minWidth: 350, px: 2, py: 1.5 }}>
       <Typography sx={{ mb: 1.5, fontSize: "15px", color: "#462E2E" }}>
         {column.title}
       </Typography>

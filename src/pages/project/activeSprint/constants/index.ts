@@ -20,10 +20,20 @@ export const columns: Column = {
         id: "column-1",
         title: "To Do",
         taskIds: ["task-1", "task-2"],
-    }
+    },
+    "column-2": {
+        id: "column-2",
+        title: "In progress",
+        taskIds: ["task-1", "task-2"],
+    },
+    "column-3": {
+        id: "column-3",
+        title: "Done",
+        taskIds: ["task-1", "task-2"],
+    },
 }
 
-export const columnsOrder: string[] = ["column-1"]
+export const columnsOrder: string[] = ["column-1", "column-2", "column-3"]
 
 export type Task = {
     [id: string]: {
