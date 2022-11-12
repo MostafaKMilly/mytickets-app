@@ -24,6 +24,9 @@ export const AppDrawer = ({ open, toggleDrawer }: AppDrawerProps) => {
 
   const toLink = (link: string) => {
     navigate(link);
+    if (!matches) {
+      toggleDrawer?.();
+    }
   };
 
   return (
@@ -61,10 +64,17 @@ export const AppDrawer = ({ open, toggleDrawer }: AppDrawerProps) => {
           display: "flex",
           flexDirection: "column",
           mt: 1,
+          height: "100%",
         }}
       >
         {navs.map((nav) => (
-          <ListItem key={nav.link} disablePadding>
+          <ListItem
+            key={nav.link}
+            disablePadding
+            sx={{
+              ...nav.styles,
+            }}
+          >
             <ListItemButton
               disableRipple
               onClick={() => toLink(nav.link)}
