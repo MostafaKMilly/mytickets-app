@@ -1,8 +1,11 @@
 import React from 'react';
+import { TaskForm } from './views/tasks/TaskForm';
 
 function Backlog() {
   return (
-    <div> Backlog </div>
+    <div> 
+      <TaskForm />
+     </div>
   );
 }
 
