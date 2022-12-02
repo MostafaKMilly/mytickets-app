@@ -1,16 +1,16 @@
 import React from "react";
 import { Box } from "@mui/material";
-import { DragDropContext, DropResult } from "@hello-pangea/dnd";
+import { DragDropContext } from "@hello-pangea/dnd";
 import { Column, ManageSprintToolbar } from "./components";
 import { ColumnsList } from "./components/ColumnsList";
-import { columns, columnsOrder, tasks } from "./constants";
+import { columnsOrder, tasks } from "./constants";
 import { useDnDManager } from "./hooks";
 
 export const ActiveSprint = () => {
   const { handleDropTask, columns } = useDnDManager();
 
   return (
-    <Box>
+    <Box display="flex" flexDirection="column" rowGap={2}>
       <ManageSprintToolbar />
       <DragDropContext onDragEnd={handleDropTask}>
         <ColumnsList>
