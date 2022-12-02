@@ -15,19 +15,41 @@ export const useDnDManager = () => {
             return;
         }
 
-        const column = columns[source.droppableId]
-        const newTaskIds = Array.from(column.taskIds)
-        newTaskIds.splice(source.index, 1)
-        newTaskIds.splice(destination.index, 0, draggableId)
+        const start = columns[source.droppableId]
+        const finish = columns[destination.droppableId]
 
-        const newColumn: Column['Column'] = {
-            ...column,
-            taskIds: newTaskIds,
+        if (start === finish) {
+            const newTaskIds = Array.from(start.taskIds)
+            newTaskIds.splice(source.index, 1)
+            newTaskIds.splice(destination.index, 0, draggableId)
+
+            const newColumn: Column['Column'] = {
+                ...start,
+                taskIds: newTaskIds,
+            }
+
+            setColumns({
+                ...columns,
+                [newColumn.id]: newColumn
+            })
+            return
         }
-
+        const startTaskIds = Array.from(start.taskIds)
+        startTaskIds.splice(source.index, 1)
+        const newStart = {
+            ...start,
+            taskIds: startTaskIds,
+        }
+        const finishTaskIds = Array.from(finish.taskIds)
+        finishTaskIds.splice(destination.index, 0, draggableId)
+        const newFinish = {
+            ...finish,
+            taskIds: finishTaskIds,
+        }
         setColumns({
             ...columns,
-            [newColumn.id]: newColumn
+            [newStart.id]: newStart,
+            [newFinish.id]: newFinish
         })
     }
 

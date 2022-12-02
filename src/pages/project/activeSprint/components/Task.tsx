@@ -14,12 +14,13 @@ import { Draggable } from "@hello-pangea/dnd";
 export const Task = ({ task, index }: TaskProps) => {
   return (
     <Draggable draggableId={task.id} index={index}>
-      {(provided) => (
+      {(provided, snapshot) => (
         <TaskContainer
           square
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
+          isDragging={snapshot.isDragging}
         >
           <Typography variant="body1" fontWeight={500} fontSize="14px">
             {task.title}
@@ -44,7 +45,9 @@ export const Task = ({ task, index }: TaskProps) => {
   );
 };
 
-const TaskContainer = styled(Paper)(
+const TaskContainer = styled(Paper, {
+  shouldForwardProp: (prop) => prop !== "isDragging",
+})<{ isDragging: boolean }>(({ isDragging }) =>
   sx({
     boxShadow: "0px 0px 5px rgba(0, 0, 0, 0.25)",
     py: 2,
@@ -52,6 +55,7 @@ const TaskContainer = styled(Paper)(
     display: "flex",
     flexDirection: "column",
     rowGap: 2,
+    backgroundColor: isDragging ? "#b1ffc5" : "white",
   })
 );
 
