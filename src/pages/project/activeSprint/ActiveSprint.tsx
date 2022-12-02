@@ -4,15 +4,15 @@ import { DragDropContext, DropResult } from "@hello-pangea/dnd";
 import { Column, ManageSprintToolbar } from "./components";
 import { ColumnsList } from "./components/ColumnsList";
 import { columns, columnsOrder, tasks } from "./constants";
-import { useDropHandler } from "./hooks";
+import { useDnDManager } from "./hooks";
 
 export const ActiveSprint = () => {
-  const dropHandler = useDropHandler();
+  const { handleDropTask, columns } = useDnDManager();
 
   return (
     <Box>
       <ManageSprintToolbar />
-      <DragDropContext onDragEnd={dropHandler}>
+      <DragDropContext onDragEnd={handleDropTask}>
         <ColumnsList>
           {columnsOrder.map((columnId) => {
             const column = columns[columnId];

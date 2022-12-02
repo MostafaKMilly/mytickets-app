@@ -13,23 +13,37 @@ export const tasks: Task = {
         type: "task",
         priority: "low"
     },
+    "task-3": {
+        id: "task-3",
+        title: "Task 3",
+        lables: ["Elites Team"],
+        type: "task",
+        priority: "low"
+    },
+    "task-4": {
+        id: "task-4",
+        title: "Task 4",
+        lables: ["Elites Team"],
+        type: "task",
+        priority: "low"
+    },
 }
 
 export const columns: Column = {
     "column-1": {
         id: "column-1",
         title: "To Do",
-        taskIds: ["task-1", "task-2"],
+        taskIds: ["task-1"],
     },
     "column-2": {
         id: "column-2",
         title: "In progress",
-        taskIds: ["task-1", "task-2"],
+        taskIds: ["task-3", "task-2"],
     },
     "column-3": {
         id: "column-3",
         title: "Done",
-        taskIds: ["task-1", "task-2"],
+        taskIds: ["task-4"],
     },
 }
 

@@ -1,1 +1,1 @@
-export { useDropHandler } from "./useDropHandler"
+export { useDnDManager } from "./useDnDManager"
